@@ -41,7 +41,7 @@ const ContactWrap = styled.div`
     color: inherit;
 
     &:hover {
-      color: #FFA52D
+      color: #136AB2
     }
   }
 `;
