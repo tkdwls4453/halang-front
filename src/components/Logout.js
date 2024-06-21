@@ -4,6 +4,7 @@ import { useSetRecoilState } from 'recoil';
 import { authState } from '../authAtoms';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import Cookies from 'js-cookie';
 
 const Logout = () => {
   const setAuthState = useSetRecoilState(authState);
@@ -14,6 +15,7 @@ const Logout = () => {
       isLoggedIn: false,
       token: null,
     });
+    Cookies.remove('authToken');
     navigate('/');
   };
 

@@ -26,7 +26,7 @@ export default Contact;
 
 const ContactWrap = styled.div`
   position: relative; /* display: absolute;는 유효하지 않으므로 제거 또는 수정 */
-  margin-top: 190px;
+  margin-top: 150px;
   height: 50vh;
   
   padding-top: 60px;

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useSetRecoilState } from 'recoil';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
+import Cookies from 'js-cookie';
 import { authState } from '../authAtoms';
 import config from '../config';
 
@@ -33,6 +34,8 @@ const Login = () => {
         isLoggedIn: true,
         token: data.token,
       });
+
+      Cookies.set('authToken', data.token, { expires: 1 }); // Token을 쿠키에 저장 (유효기간: 1일)
 
       navigate('/admin'); // Redirect to admin page
     } catch (error) {
@@ -105,7 +108,7 @@ const Input = styled.input`
 `;
 
 const LoginButton = styled.button`
-  width: 100%;
+  width: 110%;
   padding: 10px;
   background-color: #333;
   color: white;

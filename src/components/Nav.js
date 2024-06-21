@@ -9,7 +9,7 @@ const Nav = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleLogoClick = () => {
-    navigate('/main');
+    navigate('/');
   };
 
   const toggleMenu = () => {

@@ -34,7 +34,7 @@ const IntroduceWrap = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 190px;
+  margin-top: 150px;
   background-color: transparent;
   padding-top: 80px;
   padding-bottom: 100px;
