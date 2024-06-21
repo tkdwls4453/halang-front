@@ -1,6 +1,5 @@
-// AdminPage.js
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, useCallback } from 'react';
+import { useLocation, useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Logout from '../../components/Logout';
 import Selection from '../../components/Selection';
@@ -9,17 +8,12 @@ import ReviewManagement from '../../components/ReviewManagement';
 import Nav from '../../components/Nav';
 import { checkJwt } from '../../api/api';
 
-
 const AdminPage = () => {
-
   const [selectedOption, setSelectedOption] = useState('portfolio');
   const navigate = useNavigate();
-  useEffect(() => {
-    handleJwt();
-  }, [])
-  
+  const location = useLocation();
 
-  const handleJwt = async () => {
+  const handleJwt = useCallback(async () => {
     try {
       const response = await checkJwt();
       console.log(response);
@@ -27,7 +21,11 @@ const AdminPage = () => {
       console.error('실패:', error);
       navigate('/login');
     }
-  };
+  }, [navigate]);
+
+  useEffect(() => {
+    handleJwt();
+  }, [location, handleJwt]);
 
   return (
     <Container>
@@ -37,7 +35,7 @@ const AdminPage = () => {
       {selectedOption === 'portfolio' && <PortfolioManagement />}
       {selectedOption === 'review' && <ReviewManagement />}
     </Container>
-  )
+  );
 };
 
 export default AdminPage;
