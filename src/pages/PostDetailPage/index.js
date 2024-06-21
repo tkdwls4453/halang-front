@@ -1,11 +1,11 @@
 import React from 'react'
-import { useParams } from 'react-router-dom';
+// import { useParams } from 'react-router-dom';
 import Nav from '../../components/Nav';
 import styled from 'styled-components';
 import Images from '../../components/Images';
 
 const PostDetailPage = () => {
-  const { post_id } = useParams();
+  // const { postId } = useParams();
 
   return (
     <Container>

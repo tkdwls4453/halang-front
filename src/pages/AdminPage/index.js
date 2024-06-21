@@ -1,13 +1,11 @@
 // AdminPage.js
 import React, { useState, useEffect } from 'react';
-import { useRecoilValue } from 'recoil';
 import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import Logout from '../../components/Logout';
 import Selection from '../../components/Selection';
 import PortfolioManagement from '../../components/PortfolioManagement';
 import ReviewManagement from '../../components/ReviewManagement';
-import { authState } from '../../authAtoms';
 import Nav from '../../components/Nav';
 import { checkJwt } from '../../api/api';
 
@@ -20,7 +18,7 @@ const AdminPage = () => {
     handleJwt();
   }, [])
   
-  
+
   const handleJwt = async () => {
     try {
       const response = await checkJwt();
